@@ -258,28 +258,36 @@ Le `EM` à contrario du `REM` se base quant à lui sur la taille de son parent d
 ## [Flexboxgrid](http://flexboxgrid.com/)
 
 ## JavaScript
-[JavaScript] (http://devdocs.io/javascript/)
+[JavaScript](http://devdocs.io/javascript/)
 
 ### Array
-[Array] (http://devdocs.io/javascript/global_objects/array)
+Exemple on how to declare an array + what does the method ".length" does:
+```js
+var fruits = ['Apple', 'Banana'];
+
+console.log(fruits.length);
+// 2
+```
+[Array](http://devdocs.io/javascript/global_objects/array)
+
 ### Boolean
-[Boolean] (http://devdocs.io/javascript/global_objects/boolean)
+[Boolean](http://devdocs.io/javascript/global_objects/boolean)
 ### Classes
-[Classes] (http://devdocs.io/javascript/global_objects/classes)
+[Classes](http://devdocs.io/javascript/global_objects/classes)
 ### Date
-[Date] (http://devdocs.io/javascript/global_objects/date)
+[Date](http://devdocs.io/javascript/global_objects/date)
 ### JSON
-[JSON] (http://devdocs.io/javascript/global_objects/json)
+[JSON](http://devdocs.io/javascript/global_objects/json)
 ### Math
-[Math] (http://devdocs.io/javascript/global_objects/math)
+[Math](http://devdocs.io/javascript/global_objects/math)
 ### Number
-[Number] (http://devdocs.io/javascript/global_objects/number)
+[Number](http://devdocs.io/javascript/global_objects/number)
 ### Operators
-[Operator] (http://devdocs.io/javascript/global_objects/operator)
+[Operator](http://devdocs.io/javascript/global_objects/operator)
 ### RegExp
-[RegExp] (http://devdocs.io/javascript/global_objects/regexp)
+[RegExp](http://devdocs.io/javascript/global_objects/regexp)
 ### String
-[String] (http://devdocs.io/javascript/global_objects/string)
+[String](http://devdocs.io/javascript/global_objects/string)
 
 
 
