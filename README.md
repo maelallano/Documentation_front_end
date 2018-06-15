@@ -255,10 +255,10 @@ Le `EM` à contrario du `REM` se base quant à lui sur la taille de son parent d
 }
 ```
 
-## [Flexboxgrid](http://flexboxgrid.com/)
+## [Flexboxgrid Docs](http://flexboxgrid.com/)
 
 ## JavaScript
-[JavaScript](http://devdocs.io/javascript/)
+[JavaScript Docs](http://devdocs.io/javascript/)
 
 ### Array
 Exemple on how to declare an array + what does the method ".length" does:
@@ -268,26 +268,63 @@ var fruits = ['Apple', 'Banana'];
 console.log(fruits.length);
 // 2
 ```
-[Array](http://devdocs.io/javascript/global_objects/array)
+
+Here's a list of some array's methods:
+* filter() => 
+```js
+var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result = words.filter(word => word.length > 6);
+
+console.log(result);
+// expected output: Array ["exuberant", "destruction", "present"]
+```
+* find() =>
+```js
+var array1 = [5, 12, 8, 130, 44];
+
+var found = array1.find(function(element) {
+  return element > 10;
+});
+
+console.log(found);
+// expected output: 12
+```
+* indexOf() =>
+```js
+var beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+
+console.log(beasts.indexOf('bison'));
+// expected output: 1
+
+// start from index 2
+console.log(beasts.indexOf('bison', 2));
+// expected output: 4
+
+console.log(beasts.indexOf('giraffe'));
+// expected output: -1
+```
+
+[Array Docs](http://devdocs.io/javascript/global_objects/array)
 
 ### Boolean
-[Boolean](http://devdocs.io/javascript/global_objects/boolean)
+[Boolean Docs](http://devdocs.io/javascript/global_objects/boolean)
 ### Classes
-[Classes](http://devdocs.io/javascript/global_objects/classes)
+[Classes Docs](http://devdocs.io/javascript/global_objects/classes)
 ### Date
-[Date](http://devdocs.io/javascript/global_objects/date)
+[Date Docs](http://devdocs.io/javascript/global_objects/date)
 ### JSON
-[JSON](http://devdocs.io/javascript/global_objects/json)
+[JSON Docs](http://devdocs.io/javascript/global_objects/json)
 ### Math
-[Math](http://devdocs.io/javascript/global_objects/math)
+[Math Docs](http://devdocs.io/javascript/global_objects/math)
 ### Number
-[Number](http://devdocs.io/javascript/global_objects/number)
+[Number Docs](http://devdocs.io/javascript/global_objects/number)
 ### Operators
-[Operator](http://devdocs.io/javascript/global_objects/operator)
+[Operator Docs](http://devdocs.io/javascript/global_objects/operator)
 ### RegExp
-[RegExp](http://devdocs.io/javascript/global_objects/regexp)
+[RegExp Docs](http://devdocs.io/javascript/global_objects/regexp)
 ### String
-[String](http://devdocs.io/javascript/global_objects/string)
+[String Docs](http://devdocs.io/javascript/global_objects/string)
 
 
 
