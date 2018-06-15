@@ -254,11 +254,32 @@ Le `EM` à contrario du `REM` se base quant à lui sur la taille de son parent d
   }
 }
 ```
-## vm
 
-## Les Grilles avec Flexboxgrid
+## [Flexboxgrid](http://flexboxgrid.com/)
 
-# [Documentation](http://flexboxgrid.com/)
+## JavaScript
+[JavaScript] (http://devdocs.io/javascript/)
+
+### Array
+[Array] (http://devdocs.io/javascript/global_objects/array)
+### Boolean
+[Boolean] (http://devdocs.io/javascript/global_objects/boolean)
+### Classes
+[Classes] (http://devdocs.io/javascript/global_objects/classes)
+### Date
+[Date] (http://devdocs.io/javascript/global_objects/date)
+### JSON
+[JSON] (http://devdocs.io/javascript/global_objects/json)
+### Math
+[Math] (http://devdocs.io/javascript/global_objects/math)
+### Number
+[Number] (http://devdocs.io/javascript/global_objects/number)
+### Operators
+[Operator] (http://devdocs.io/javascript/global_objects/operator)
+### RegExp
+[RegExp] (http://devdocs.io/javascript/global_objects/regexp)
+### String
+[String] (http://devdocs.io/javascript/global_objects/string)
 
 
 
