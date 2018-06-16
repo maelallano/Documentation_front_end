@@ -270,6 +270,7 @@ console.log(fruits.length);
 ```
 
 Here's a list of some array's methods:
+
 * filter() => 
 ```js
 var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
@@ -279,6 +280,7 @@ const result = words.filter(word => word.length > 6);
 console.log(result);
 // expected output: Array ["exuberant", "destruction", "present"]
 ```
+
 * find() =>
 ```js
 var array1 = [5, 12, 8, 130, 44];
@@ -290,6 +292,7 @@ var found = array1.find(function(element) {
 console.log(found);
 // expected output: 12
 ```
+
 * indexOf() =>
 ```js
 var beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
@@ -305,25 +308,276 @@ console.log(beasts.indexOf('giraffe'));
 // expected output: -1
 ```
 
+* shift() =>
+```js
+var array1 = [1, 2, 3];
+
+var firstElement = array1.shift();
+
+console.log(array1);
+// expected output: Array [2, 3]
+
+console.log(firstElement);
+// expected output: 1
+```
+
+* splice() =>
+```js
+var months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');
+// inserts at 1st index position
+console.log(months);
+// expected output: Array ['Jan', 'Feb', 'March', 'April', 'June']
+
+months.splice(4, 1, 'May');
+// replaces 1 element at 4th index
+console.log(months);
+// expected output: Array ['Jan', 'Feb', 'March', 'April', 'May']
+```
+
+* unshift() =>
+```js
+var array1 = [1, 2, 3];
+
+console.log(array1.unshift(4, 5));
+// expected output: 5
+
+console.log(array1);
+// expected output: Array [4, 5, 1, 2, 3]
+```
+
 [Array Docs](http://devdocs.io/javascript/global_objects/array)
 
 ### Boolean
+
+Here's a list of some boolean's methods:
+
+* toString() =>
+```js
+var flag1 = new Boolean(true);
+
+console.log(flag1.toString());
+// expected output: "true"
+
+var flag2 = new Boolean(1);
+
+console.log(flag2.toString());
+// expected output: "true"
+```
+
+* valueOf() =>
+```js
+var x = new Boolean();
+
+console.log(x.valueOf());
+// expected output: false
+
+var y = new Boolean("Mozilla");
+
+console.log(y.valueOf());
+// expected output: true
+```
+
 [Boolean Docs](http://devdocs.io/javascript/global_objects/boolean)
 ### Classes
+
+Here's a list of some classes's methods:
+
+* constructor() =>
+```js
+class Polygon {
+  constructor() {
+    this.name = "Polygon";
+  }
+}
+
+var poly1 = new Polygon();
+
+console.log(poly1.name);
+// expected output: "Polygon"
+```
+
+* extends() =>
+```js
+class formatDate extends Date {
+  constructor(dateStr) {
+    super(dateStr);
+
+  }
+
+  getFormattedDate() {
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    return `${this.getDate()}-${months[this.getMonth()]}-${this.getFullYear()}`;
+  }
+}
+
+console.log(new formatDate('August 19, 1975 23:15:30').getFormattedDate());
+// expected output: "19-Aug-1975"
+```
+
+* static() =>
+```js
+class StaticMethodCall {
+  constructor() {
+    console.log(StaticMethodCall.staticMethod());
+    // expected output: "static method has been called."
+  }
+
+  static staticMethod() {
+    return 'static method has been called.';
+  }
+}
+
+new StaticMethodCall();
+```
+
 [Classes Docs](http://devdocs.io/javascript/global_objects/classes)
+
 ### Date
+
+Here's a list of some date's methods:
+
+* getFullYear() =>
+```js
+var moonLanding = new Date('July 20, 69 00:20:18');
+
+console.log(moonLanding.getFullYear());
+// expected output: 1969
+```
+
+* now() =>
+```js
+// this example takes 2 seconds to run
+var start = Date.now();
+
+console.log("starting timer...");
+// expected output: starting timer...
+
+setTimeout(function() {
+  var millis = Date.now() - start;
+
+  console.log("seconds elapsed = " + Math.floor(millis/1000));
+  // expected output : seconds elapsed = 2
+}, 2000);
+```
+
+* parse() =>
+```js
+var unixTimeZero = Date.parse('01 Jan 1970 00:00:00 GMT');
+var javaScriptRelease = Date.parse('04 Dec 1995 00:12:00 GMT');
+
+console.log(unixTimeZero);
+// expected output: 0
+
+console.log(javaScriptRelease);
+// expected output: 818035920000
+```
+
+* FullYear() =>
+```js
+var event = new Date('August 19, 1975 23:15:30');
+
+event.setFullYear(1969);
+
+console.log(event.getFullYear());
+// expected output: 1969
+
+event.setFullYear(0);
+
+console.log(event.getFullYear());
+// expected output: 0
+```
+
+* UTC() =>
+```js
+var utcDate1 = new Date(Date.UTC(96, 1, 2, 3, 4, 5));
+var utcDate2 = new Date(Date.UTC(0, 0, 0, 0, 0, 0));
+
+console.log(utcDate1.toUTCString());
+// expected output: Fri, 02 Feb 1996 03:04:05 GMT
+
+console.log(utcDate2.toUTCString());
+// expected output: Sun, 31 Dec 1899 00:00:00 GMT
+```
+
+* valueOf() =>
+```js
+var date1 = new Date(Date.UTC(96, 1, 2, 3, 4, 5));
+
+console.log(date1.valueOf());
+// expected output: 823230245000
+
+var date2 = new Date('02 Feb 1996 03:04:05 GMT');
+
+console.log(date2.valueOf());
+// expected output: 823230245000
+```
+
 [Date Docs](http://devdocs.io/javascript/global_objects/date)
+
 ### JSON
+
+Here's a list of some JSON's methods:
+
+* parse() =>
+```js
+var json = '{"result":true, "count":42}';
+obj = JSON.parse(json);
+
+console.log(obj.count);
+// expected output: 42
+
+console.log(obj.result);
+// expected output: true
+```
+
+* stringify() =>
+```js
+console.log(JSON.stringify({ x: 5, y: 6 }));
+// expected output: "{"x":5,"y":6}"
+
+console.log(JSON.stringify([new Number(3), new String('false'), new Boolean(false)]));
+// expected output: "[3,"false",false]"
+
+console.log(JSON.stringify({ x: [10, undefined, function(){}, Symbol('')] }));
+// expected output: "{"x":[10,null,null,null]}"
+
+console.log(JSON.stringify(new Date(2006, 0, 2, 15, 4, 5)));
+// expected output: ""2006-01-02T15:04:05.000Z""
+```
+
 [JSON Docs](http://devdocs.io/javascript/global_objects/json)
+
 ### Math
+
+Here's a list of some math's methods:
+
 [Math Docs](http://devdocs.io/javascript/global_objects/math)
+
 ### Number
+
+Here's a list of some number's methods:
+
 [Number Docs](http://devdocs.io/javascript/global_objects/number)
+
 ### Operators
+
+Here's a list of some operators's methods:
+
 [Operator Docs](http://devdocs.io/javascript/global_objects/operator)
+
 ### RegExp
+
+Here's a list of some regExp's methods:
+
 [RegExp Docs](http://devdocs.io/javascript/global_objects/regexp)
+
 ### String
+
+Here's a list of some string's methods:
+
 [String Docs](http://devdocs.io/javascript/global_objects/string)
 
 
