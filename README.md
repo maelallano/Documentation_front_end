@@ -554,23 +554,297 @@ console.log(JSON.stringify(new Date(2006, 0, 2, 15, 4, 5)));
 
 Here's a list of some math's methods:
 
+* abs() =>
+```js
+function difference(a, b) {
+  return Math.abs(a - b);
+}
+
+console.log(difference(3, 5));
+// expected output: 2
+
+console.log(difference(5, 3));
+// expected output: 2
+
+console.log(difference(1.23456, 7.89012));
+// expected output: 6.6555599999999995
+```
+
+* ceil() =>
+```js
+console.log(Math.ceil(.95));
+// expected output: 1
+
+console.log(Math.ceil(4));
+// expected output: 4
+
+console.log(Math.ceil(7.004));
+// expected output: 8
+
+console.log(Math.ceil(-7.004));
+// expected output: -7
+```
+
+* floor() =>
+```js
+console.log(Math.floor(5.95));
+// expected output: 5
+
+console.log(Math.floor(5.05));
+// expected output: 5
+
+console.log(Math.floor(5));
+// expected output: 5
+
+console.log(Math.floor(-5.05));
+// expected output: -6
+```
+
+* max() =>
+```js
+console.log(Math.max(1, 3, 2));
+// expected output: 3
+
+console.log(Math.max(-1, -3, -2));
+// expected output: -1
+
+var array1 = [1, 3, 2];
+
+console.log(Math.max(...array1));
+// expected output: 3
+```
+
+* floor() =>
+```js
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+console.log(getRandomInt(3));
+// expected output: 0, 1 or 2
+
+console.log(getRandomInt(1));
+// expected output: 0
+```
+
 [Math Docs](http://devdocs.io/javascript/global_objects/math)
 
 ### Number
 
 Here's a list of some number's methods:
 
+* isInteger() =>
+```js
+function fits(x, y) {
+  if (Number.isInteger(y / x)) {
+    return 'Fits!';
+  }
+  return 'Does NOT fit!';
+}
+
+console.log(fits(5, 10));
+// expected output: "Fits!"
+```
+
+* isFinite() =>
+```js
+function div(x) {
+  if (Number.isFinite(1000 / x)) {
+    return 'Number is NOT Infinity.';
+  }
+  return 'Number is Infinity!';
+}
+
+console.log(div(0));
+// expected output: "Number is Infinity!"
+
+console.log(div(1));
+// expected output: "Number is NOT Infinity."
+```
+
+* valueOf() =>
+```js
+var numObj = new Number(42);
+console.log(typeof numObj);
+// expected output: "object"
+
+var num = numObj.valueOf();
+console.log(num);
+// expected output: 42
+
+console.log(typeof num);
+// expected output: "number"
+```
+
 [Number Docs](http://devdocs.io/javascript/global_objects/number)
 
-### Operators
+### Arithmetic Operators
 
-Here's a list of some operators's methods:
+Addition (+)
+The addition operator produces the sum of numeric operands or string concatenation.
+
+Examples
+```js
+// Number + Number -> addition
+1 + 2 // 3
+
+// Boolean + Number -> addition
+true + 1 // 2
+
+// Boolean + Boolean -> addition
+false + false // 0
+
+// Number + String -> concatenation
+5 + 'foo' // "5foo"
+
+// String + Boolean -> concatenation
+'foo' + false // "foofalse"
+
+// String + String -> concatenation
+'foo' + 'bar' // "foobar"
+```
+
+Subtraction (-)
+The subtraction operator subtracts the two operands, producing their difference.
+
+Examples
+```js
+5 - 3 // 2
+3 - 5 // -2
+'foo' - 3 // NaN
+```
+
+Division (/)
+The division operator produces the quotient of its operands where the left operand is the dividend and the right operand is the divisor.
+
+Examples
+```js
+1 / 2      // returns 0.5 in JavaScript
+1 / 2      // returns 0 in Java 
+// (neither number is explicitly a floating point number)
+
+1.0 / 2.0  // returns 0.5 in both JavaScript and Java
+
+2.0 / 0    // returns Infinity in JavaScript
+2.0 / 0.0  // returns Infinity too
+2.0 / -0.0 // returns -Infinity in JavaScript
+```
+
+Multiplication (*)
+The multiplication operator produces the product of the operands.
+
+Examples
+```js
+2 * 2 // 4
+-2 * 2 // -4
+Infinity * 0 // NaN
+Infinity * Infinity // Infinity
+'foo' * 2 // NaN
+```
+
+Remainder (%)
+The remainder operator returns the remainder left over when one operand is divided by a second operand. It always takes the sign of the dividend, not the divisor. It uses a built-in modulo function to produce the result, which is the integer remainder of dividing var1 by var2 — for example — var1 modulo var2. There is a proposal to get an actual modulo operator in a future version of ECMAScript, the difference being that the modulo operator result would take the sign of the divisor, not the dividend.
+
+Examples
+```js
+12 % 5 // 2
+-1 % 2 // -1
+1 % -2 // 1
+NaN % 2 // NaN
+1 % 2 // 1
+2 % 3 // 2
+-4 % 2 // -0
+5.5 % 2 // 1.5
+```
+
+Exponentiation (**)
+The exponentiation operator returns the result of raising first operand to the power second operand. that is, var1var2, in the preceding statement, where var1 and var2 are variables. Exponentiation operator is right associative. a ** b ** c is equal to a ** (b ** c).
+
+Examples
+```js
+2 ** 3 // 8
+3 ** 2 // 9
+3 ** 2.5 // 15.588457268119896
+10 ** -1 // 0.1
+NaN ** 2 // NaN
+
+2 ** 3 ** 2 // 512
+2 ** (3 ** 2) // 512
+(2 ** 3) ** 2 // 64
+To invert the sign of the result of an exponentiation expression:
+
+-(2 ** 2) // -4
+To force the base of an exponentiation expression to be a negative number:
+
+(-2) ** 2 // 4
+```
+
+Increment (++)
+The increment operator increments (adds one to) its operand and returns a value.
+
+If used postfix, with operator after operand (for example, x++), then it returns the value before incrementing.
+If used prefix with operator before operand (for example, ++x), then it returns the value after incrementing.
+
+Examples
+```js
+// Postfix 
+var x = 3;
+y = x++; // y = 3, x = 4
+
+// Prefix
+var a = 2;
+b = ++a; // a = 3, b = 3
+```
+
+Decrement (--)
+The decrement operator decrements (subtracts one from) its operand and returns a value.
+
+If used postfix (for example, x--), then it returns the value before decrementing.
+If used prefix (for example, --x), then it returns the value after decrementing.
+
+Examples
+```js
+// Postfix 
+var x = 3;
+y = x--; // y = 3, x = 2
+
+// Prefix
+var a = 2;
+b = --a; // a = 1, b = 1
+```
+
+Unary negation (-)
+The unary negation operator precedes its operand and negates it.
+
+Examples
+```js
+var x = 3;
+y = -x; // y = -3, x = 3
+
+//unary negation operator can convert non-numbers into a number
+var x = "4";
+y = -x; // y = -4
+```
 
 [Operator Docs](http://devdocs.io/javascript/global_objects/operator)
 
 ### RegExp
 
-Here's a list of some regExp's methods:
+The RegExp constructor creates a regular expression object for matching text with a pattern.
+
+```js
+var regex1 = /\w+/;
+var regex2 = new RegExp('\\w+');
+
+console.log(regex1);
+// expected output: /\w+/
+
+console.log(regex2);
+// expected output: /\w+/
+
+console.log(regex1 === regex2);
+// expected output: false
+```
 
 [RegExp Docs](http://devdocs.io/javascript/global_objects/regexp)
 
