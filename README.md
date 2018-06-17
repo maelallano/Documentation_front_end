@@ -852,15 +852,132 @@ console.log(regex1 === regex2);
 
 Here's a list of some string's methods:
 
+* includes() =>
+```js
+var str = 'To be, or not to be, that is the question.';
+
+console.log(str.includes('To be'));       // true
+console.log(str.includes('question'));    // true
+console.log(str.includes('nonexistent')); // false
+console.log(str.includes('To be', 1));    // false
+console.log(str.includes('TO BE'));       // false
+```
+
+* indexOf() =>
+```js
+'Blue Whale'.indexOf('Blue');     // returns  0
+'Blue Whale'.indexOf('Blute');    // returns -1
+'Blue Whale'.indexOf('Whale', 0); // returns  5
+'Blue Whale'.indexOf('Whale', 5); // returns  5
+'Blue Whale'.indexOf('Whale', 7); // returns -1
+'Blue Whale'.indexOf('');         // returns  0
+'Blue Whale'.indexOf('', 9);      // returns  9
+'Blue Whale'.indexOf('', 10);     // returns 10
+'Blue Whale'.indexOf('', 11);     // returns 10
+```
+
+* length() =>
+```js
+var x = 'Mozilla';
+var empty = '';
+
+console.log('Mozilla is ' + x.length + ' code units long');
+/* "Mozilla is 7 code units long" */
+
+console.log('The empty string has a length of ' + empty.length);
+/* "The empty string has a length of 0" */
+```
+
+* match() =>
+```js
+var str = 'For more information, see Chapter 3.4.5.1';
+var re = /see (chapter \d+(\.\d)*)/i;
+var found = str.match(re);
+
+console.log(found);
+
+// logs [ 'see Chapter 3.4.5.1',
+//        'Chapter 3.4.5.1',
+//        '.1',
+//        index: 22,
+//        input: 'For more information, see Chapter 3.4.5.1' ]
+
+// 'see Chapter 3.4.5.1' is the whole match.
+// 'Chapter 3.4.5.1' was captured by '(chapter \d+(\.\d)*)'.
+// '.1' was the last value captured by '(\.\d)'.
+// The 'index' property (22) is the zero-based index of the whole match.
+// The 'input' property is the original string that was parsed.
+```
+
+* repeat() =>
+```js
+'abc'.repeat(-1);   // RangeError
+'abc'.repeat(0);    // ''
+'abc'.repeat(1);    // 'abc'
+'abc'.repeat(2);    // 'abcabc'
+'abc'.repeat(3.5);  // 'abcabcabc' (count will be converted to integer)
+'abc'.repeat(1/0);  // RangeError
+
+({ toString: () => 'abc', repeat: String.prototype.repeat }).repeat(2);
+// 'abcabc' (repeat() is a generic method)
+```
+
+* replace() =>
+```js
+var str = 'Twas the night before Xmas...';
+var newstr = str.replace(/xmas/i, 'Christmas');
+console.log(newstr);  // Twas the night before Christmas...
+```
+
+* slice() =>
+```js
+var str1 = 'The morning is upon us.', // the length of str1 is 23.
+    str2 = str1.slice(1, 8),
+    str3 = str1.slice(4, -2),
+    str4 = str1.slice(12),
+    str5 = str1.slice(30);
+console.log(str2); // OUTPUT: he morn
+console.log(str3); // OUTPUT: morning is upon u
+console.log(str4); // OUTPUT: is upon us.
+console.log(str5); // OUTPUT: ""
+```
+
+* split() =>
+```js
+function splitString(stringToSplit, separator) {
+  var arrayOfStrings = stringToSplit.split(separator);
+
+  console.log('The original string is: "' + stringToSplit + '"');
+  console.log('The separator is: "' + separator + '"');
+  console.log('The array has ' + arrayOfStrings.length + ' elements: ' + arrayOfStrings.join(' / '));
+}
+
+var tempestString = 'Oh brave new world that has such people in it.';
+var monthString = 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec';
+
+var space = ' ';
+var comma = ',';
+
+splitString(tempestString, space);
+splitString(tempestString);
+splitString(monthString, comma);
+```
+
+* trim() =>
+```js
+var orig = '   foo  ';
+console.log(orig.trim()); // 'foo'
+
+// Another example of .trim() removing whitespace from just one side.
+
+var orig = 'foo    ';
+console.log(orig.trim()); // 'foo'
+```
+
+* valueOf() =>
+```js
+var x = new String('Hello world');
+console.log(x.valueOf()); // Displays 'Hello world'
+```
+
 [String Docs](http://devdocs.io/javascript/global_objects/string)
-
-
-
-
-
-
-
-
-
-
-
